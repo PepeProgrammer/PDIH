@@ -132,7 +132,7 @@ int main(){
 	mi_pausa();
 	setvideomode(2);
 
-	//printf("\nEl modo de texto actual es: %c", getvideomode()); 
+	printf("\nEl modo de texto actual es: %d", getvideomode()); 
 	textcolor(2);
 	printf("\nColor de texto cambiado a verde");
 	textbackground(1);
