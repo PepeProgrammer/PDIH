@@ -9,14 +9,12 @@ void test( WINDOW *window,char * mensaje) {
 
 int main() {
     bool finalizar = false;
-    int fils, cols;
-    int x = 5, y = 0;
-    int max_y = 23, max_x = 79;
-    int next_x = 0;
-    int direction_x = 1;
-    int next_y = 0;
-    int direction_y = 1;
-    
+    int x = 40, y = 11;
+    int filas, columnas;
+    int y_max = 23, x_max = 79;
+    int x_sig = 0, y_sig = 0;
+    int direccion_x = 1, direccion_y = 1;
+
     int xc = 0, yc = 12;
     int xc2 = 79, yc2 = 12;
     int ch = 0;
@@ -29,11 +27,11 @@ int main() {
     curs_set(FALSE);
     clear();
     refresh();
-    nodelay(stdscr, FALSE); // Así getch hace pausa
+    nodelay(stdscr, FALSE); // Así getch pausa la ejecución del juego
 
-    getmaxyx(stdscr,fils,cols);
-    WINDOW *window = newwin(fils, cols, 0, 0);
-    box(window, '|', '-');
+    getmaxyx(stdscr,filas,columnas);
+    WINDOW *window = newwin(filas, columnas, 0, 0);
+    box(window, '+', '+');
     mvwprintw(window,5,5, "Pong: El videojuego");
     mvwprintw(window,6,5, "'a' y 's' jugador 1");
     mvwprintw(window,7,5, "'o' y 'p' jugador 2");
@@ -43,7 +41,7 @@ int main() {
     wrefresh(window);
     getch();
 
-    nodelay(stdscr, TRUE); // Así getch NO hace pausa
+    nodelay(stdscr, TRUE); // Así getch no pausa la ejecución del juego
 
     while(!finalizar) {
         reset = false;
@@ -74,32 +72,32 @@ int main() {
            finalizar = true;
         }
 
-        next_x = x + direction_x;
-        next_y = y + direction_y;
+        x_sig = x + direccion_x;
+        y_sig = y + direccion_y;
 
-        if((next_x == 0 && (next_y == yc || next_y == yc-1 || next_y == yc+1)) || (next_x == max_x && (next_y == yc2 || next_y == yc2-1 || next_y == yc2+1))){ //next_x > max_x || next_x < 0
-            direction_x *= -1;
-        } else if(next_x == 0 || next_x == max_x){
-            if(next_x == 0){
+        if((x_sig == 0 && (y_sig == yc || y_sig == yc-1 || y_sig == yc+1)) || (x_sig == x_max && (y_sig == yc2 || y_sig == yc2-1 || y_sig == yc2+1))){ //next_x > max_x || next_x < 0
+            direccion_x *= -1;
+        } else if(x_sig == 0 || x_sig == x_max){
+            if(x_sig == 0){
                 punt2++;
-                direction_x = 1;
+                direccion_x = 1;
             } else {
                 punt++;
-                direction_x = -1;
+                direccion_x = -1;
             }
             x = 40; y = 11;
             xc = 0; yc = 12;
             xc2 = 79; yc2 = 12;
             reset = true;
         } else {
-            x += direction_x;
+            x += direccion_x;
         }
 
         if(!reset){
-            if(next_y > max_y || next_y < 0){
-                direction_y *= -1;
+            if(y_sig > y_max || y_sig < 0){
+                direccion_y *= -1;
             } else {
-            y += direction_y;
+            y += direccion_y;
             }
         }
 
@@ -112,17 +110,17 @@ int main() {
     clear();
     refresh();
 
-    nodelay(stdscr, FALSE); // Así getch hace pausa
+    nodelay(stdscr, FALSE);
 
     werase(window);
-    box(window, '*', '*');
+    box(window, '|', '-');
     mvwprintw(window,5,5, "FINAL DE LA PARTIDA");
     if(punt > punt2){
         mvwprintw(window,6,5, "GANA JUGADOR 1");
     } else {
         mvwprintw(window,6,5, "GANA JUGADOR 2");
     }
-    mvwprintw(window,7,5, "Juego realizado por Jordi Pereira Gil, ¡gracias por jugar!");
+    mvwprintw(window,7,5, "Juego realizado por Jordi Pereira Gil, gracias por jugar!");
     mvwprintw(window,8,5, "Pulsa una tecla para finalizar");
     wrefresh(window);
     getch();
