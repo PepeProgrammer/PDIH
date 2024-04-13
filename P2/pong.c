@@ -118,8 +118,10 @@ int main() {
     mvwprintw(window,5,5, "FINAL DE LA PARTIDA");
     if(punt > punt2){
         mvwprintw(window,6,5, "GANA JUGADOR 1");
-    } else {
+    } else if(punt < punt2){
         mvwprintw(window,6,5, "GANA JUGADOR 2");
+    } else {
+        mvwprintw(window,6,5, "EMPATE");
     }
     mvwprintw(window,7,5, "Puntos jugador 1: %d   Puntos jugador 2: %d", punt, punt2);
     mvwprintw(window,8,5, "Pulsa una tecla para finalizar");
