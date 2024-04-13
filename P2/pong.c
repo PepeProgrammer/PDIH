@@ -33,11 +33,12 @@ int main() {
     WINDOW *window = newwin(filas, columnas, 0, 0);
     box(window, '+', '+');
     mvwprintw(window,5,5, "Pong: El videojuego");
-    mvwprintw(window,6,5, "'a' y 's' jugador 1");
-    mvwprintw(window,7,5, "'o' y 'p' jugador 2");
-    mvwprintw(window,8,5, "'y' para finalizar el juego");
-    mvwprintw(window,9,5, "Gana el primer juador en llegar a 3 puntos");
-    mvwprintw(window,10,5, "Pulsa una tecla para empezar");
+    mvwprintw(window,6,5, "Juego realizado por Jordi Pereira Gil, gracias por jugar!");
+    mvwprintw(window,7,5, "'a' y 's' jugador 1");
+    mvwprintw(window,8,5, "'o' y 'p' jugador 2");
+    mvwprintw(window,9,5, "'y' para finalizar el juego");
+    mvwprintw(window,10,5, "Gana el primer juador en llegar a 3 puntos");
+    mvwprintw(window,11,5, "Pulsa una tecla para empezar");
     wrefresh(window);
     getch();
 
@@ -120,7 +121,7 @@ int main() {
     } else {
         mvwprintw(window,6,5, "GANA JUGADOR 2");
     }
-    mvwprintw(window,7,5, "Juego realizado por Jordi Pereira Gil, gracias por jugar!");
+    mvwprintw(window,7,5, "Puntos jugador 1: %d   Puntos jugador 2: %d", punt, punt2);
     mvwprintw(window,8,5, "Pulsa una tecla para finalizar");
     wrefresh(window);
     getch();
