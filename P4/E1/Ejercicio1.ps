@@ -1,0 +1,82 @@
+%!
+%% Dibujamos una casa 
+/Times-Roman findfont
+20 scalefont
+setfont
+0.6 0.6 0.6 setrgbcolor 
+
+newpath			% Start a new path
+
+200 400 moveto
+120  0 rlineto
+0 120 rlineto
+-120  0 rlineto
+
+closepath
+
+2 setlinewidth
+fill
+
+stroke
+
+newpath %triángulo del techo
+ 180 520 moveto % 400 + 120 del cuadrado creado
+ 160 0 rlineto
+ -80 70 rlineto
+closepath
+fill
+
+stroke
+
+0.2 0.2 0.7 setrgbcolor
+
+newpath			% Cuadrado casa bordes
+
+200 400 moveto
+120  0 rlineto
+0 120 rlineto
+-120  0 rlineto
+
+closepath
+
+2 setlinewidth
+
+stroke
+
+newpath %triángulo del techo bordes
+ 180 520 moveto % 400 + 120 del cuadrado creado
+ 160 0 rlineto
+ -80 70 rlineto
+closepath
+
+stroke
+
+
+newpath % ventana izquierda
+ 210 480 moveto
+ 30 0 rlineto
+  0 20 rlineto
+-30 0 rlineto
+closepath
+stroke
+
+newpath % ventana derecha
+ 280 480 moveto
+ 30 0 rlineto
+  0 20 rlineto
+-30 0 rlineto
+closepath
+stroke
+
+newpath % puerta
+    245 400 moveto
+    30 0 rlineto
+    0 50 rlineto
+    -30 0 rlineto
+    closepath
+stroke
+
+
+
+showpage		% We're done... eject the page
+
