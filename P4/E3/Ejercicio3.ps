@@ -3,22 +3,22 @@
 << /PageSize [600 282] >> setpagedevice
 
 1 0 0 setrgbcolor
-newpath % círculo
+newpath % círculo izquierda
 % x  y   R  angI angF
  70 160  40   0   360   arc
 closepath
 fill
 stroke
 
-newpath % círculo
+newpath % círculo derecha
 % x  y   R  angI angF
  140 160  40   0   360   arc
 closepath
 fill
 stroke
 
-%0 0 0 setrgbcolor
-newpath
+
+newpath %triángulo
 33 144 moveto
 144 0 rlineto % 110 - 38 = 72
 -75 -100 rlineto
@@ -39,7 +39,7 @@ setfont
   newpath
   0.6 setgray
   200 80 moveto
-  (No sabes la suerte que tienes si belleza.) show
+  (No sabes la suerte que tienes sin belleza.) show
   stroke
 
   newpath
